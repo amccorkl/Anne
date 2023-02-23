@@ -54,6 +54,22 @@
     .pink {
       color:pink;
     }
+  .pasta-container {
+    position: relative;
+    left: 40%;
+  }
+    .col {
+      border: 1px solid;
+      padding: auto;
+      width: 200px;
+      text-align: center;
+      margin-bottom: 20px;
+      
+    }
+    li {
+      position: relative;
+      right: 20px;
+    }
 
   </style>
 </head>
