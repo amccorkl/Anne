@@ -1,13 +1,6 @@
 <?php 
 
-  $conn = mysqli_connect('localhost', 'root', "test1234", 'pasta');
-
-  // //check connection
-  // if(!$conn){
-  //   echo "Connection failed" . mysqli_connect_error();
-  // } else {
-  //   echo 'connection successful';
-  // }
+  include('config/db_connect.php');
 
   // query to access pasta
   $sql = 'SELECT title, ingredients, id FROM pasta ORDER BY created_at';
@@ -42,6 +35,8 @@
             <div class="card-body">
               <!-- no malicious code pushed back by using html... -->
               <h4><?php echo htmlspecialchars($pasta['title']) ?></h4>
+
+              <!-- next round of pasta entered from UI didn't enter the db because of how I created it with pasta.pasta -->
               
               <ul>
                 <!-- explode is like split, $ing is the ingredient index -->

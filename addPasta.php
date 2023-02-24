@@ -1,5 +1,7 @@
 <?php 
 
+include('config/db_connect.php');
+
 //create variables for input values
 //set form fields as empty on loading
 $email = $title = $ingredients = '';
@@ -43,8 +45,23 @@ $errors = array('email' => '', 'title' => '', 'ingredients' => '');
       //returns true there is an error
       echo 'error(s) in the form';
     } else {
-      // form is valid, redirecting to the index page
-			header('Location: index.php');
+      //escape sql harmful injections
+			$email = mysqli_real_escape_string($conn, $_POST[$email]);
+			$title = mysqli_real_escape_string($conn, $_POST[$title]);
+			$ingredients = mysqli_real_escape_string($conn, $_POST[$ingredients]);
+
+			//create sql to add to database
+			$sql = "INSERT INTO pasta(title, email, ingredients) VALUES ('$title', '$email', '$ingredients')"; 
+			// save to database
+			if(mysqli_query($conn, $sql)){
+				//success
+					// form is valid, redirecting to the index page
+				header('Location: index.php');
+			} else {
+				//error
+				echo 'query error: ' . mysqli_error($conn);
+			}
+			
     }
 
 	} // end POST check

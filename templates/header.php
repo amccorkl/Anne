@@ -77,9 +77,9 @@
 
 <nav class="nav">
   <div class="container center">
-    <a href="#" class="title ">Dinner Now!</a>
+    <a href="index.php" class="title ">Dinner Now!</a>
     <ul id="nav-mobile" class="right">
-      <li><a href="#" class="btn">Order another Dish</a></li>
+      <li><a href="addPasta.php" class="btn">Order another Dish</a></li>
       <li></li>
       <li></li>
     </ul>
